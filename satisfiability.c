@@ -3,7 +3,7 @@
 typedef enum {NOT,OR,AND,TRUE,FALSE,INITIALIZE} logical;
 
 typedef struct node* treePointer;
-typedef struct{
+typedef struct node{
     treePointer leftChild;
     logical data;
     short int value;
@@ -11,7 +11,7 @@ typedef struct{
 }node;
 
 typedef struct Link* LinkPointer;
-typedef struct{
+typedef struct Link{
     treePointer pointer;
     LinkPointer Linker;
 }Link;
@@ -27,8 +27,8 @@ treePointer Create(int num){
 }
 
 void connect(treePointer left,treePointer middle,treePointer right){
-    middle->left=left;
-    middle->right=right;
+    middle->leftChild=left;
+    middle->rightChild=right;
 
     return;
 }
@@ -63,7 +63,7 @@ int main(){
     variable[0]->Linker->Linker=NULL;
 
     variable[1]=malloc(sizeof(Link));
-    variable[1]->Pointer=node11;
+    variable[1]->pointer=node11;
     variable[1]->Linker=NULL;
 
     variable[2]=malloc(sizeof(Link));
