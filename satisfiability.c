@@ -32,6 +32,29 @@ void connect(treePointer left,treePointer middle,treePointer right){
 
     return;
 }
+
+char* getdataname(logical log) {
+    switch(log)
+    {
+        case NOT: return "NOT";
+        case OR: return "OR";
+        case AND: return "AND";
+        case TRUE: return "TRUE";
+        case FALSE: return "FALSE";
+        case INITIALIZE: return "INITIALIZE";
+        default : return "VALUE";
+     }
+}
+
+void inorder(treePointer bt){
+    if(bt){
+        inorder(bt->leftChild);
+        printf("%s ",getdataname(bt->data));
+        inorder(bt->rightChild);
+    }
+}
+
+
 int main(){
     treePointer root;//tree의 root를 가르키는 pointer
 
@@ -98,6 +121,7 @@ int main(){
     connect(node9,node5,node10);
     connect(NULL,node3,node6);
 
+    inorder(node1);
 
 
     return 0;
